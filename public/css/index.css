@@ -1,0 +1,116 @@
+*{
+    padding:0;
+    margin:0;
+}
+.wrap-header{
+    height:80px;
+}
+.wrap-header .header-box{
+    width: 63%;
+    height:100%;
+    margin:0 auto;
+}
+.header-items{
+    height:100%;
+    float:left
+}
+.logo{
+    width: 15%;
+    background:url('../images/header/logo192-3x_621b1c1fc1dd9a9eff1800acff237e5c.png');
+    background-size: 100% 100%;
+}
+.search{
+    width: 45%;
+}
+.search .search-box{
+    box-sizing: content-box;
+    width: 70%;
+    border: 1px solid #ccc;
+    height: 48px;
+    border-radius: 3px;
+    margin: 16px auto;
+    position: relative;
+}
+.search .header-search-input{
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    width: 83%;
+    height: 30px;
+    line-height: 30px;
+    padding: 10px 10px 10px 0;
+    background: none;
+    text-indent: 12px;
+    vertical-align: top;
+    border: 0;
+    font-size: 14px;
+    outline:none
+}
+.search .header-search-bt{
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background-color: #23b8ff;
+    border-radius: 0 3px 3px 0;
+    text-align: center;
+    color: #fff;
+    cursor: pointer
+}
+.search .header-search-bt:hover{
+    background-color: #188eee;
+}
+.search .header-search-icon{
+    font-family: webfont;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    -webkit-font-feature-settings: normal;
+    font-feature-settings: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 16px;
+    position: relative;
+    vertical-align: 0;
+    -webkit-font-smoothing: antialiased;
+    font-size:22px
+}
+.search .header-search-icon::before{
+    content: "";
+}
+.login{
+    width: 40%;
+}
+.login .login-item{
+    float: right;
+    text-align: center;
+    font-size: 14px;
+    color:#333;
+    line-height: 80px;
+    cursor: pointer;
+    padding: 0 15px;
+}
+.login .login-bt{
+    
+}
+.login .login-im{
+    
+}
+.login .login-download{
+    
+}
+.login .login-user{
+    
+}
+.login .login-user img{
+    width:36px;
+    height:36px;
+    border-radius:50%;
+    float: right;
+    margin: 22px 5px 0 0;
+}
+.login .login-user span{
+    float: right
+}
