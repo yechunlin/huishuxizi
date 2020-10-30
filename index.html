@@ -7,8 +7,11 @@
   <meta name="Description" content="">
   <title>会书习字</title>
   <link rel="stylesheet" href="./public/css/index.css">
+  <link rel="stylesheet" href="./public/css/swiper-lb.css">
+  <link rel="stylesheet" href="./public/js/swiper-6.3.3/swiper-master/package/swiper-bundle.min.css">
  </head>
  <body>
+  <!-- 头部公共部分 -->
   <div class="wrap-header">
 	<div class="header-box">
 		<div class="header-items logo"></div>
@@ -34,8 +37,52 @@
 			<div class="login-item login-download">
 				客户端
 			</div>
+			<div class="login-item login-download">
+				极速版
+			</div>
+			<div class="login-item login-download">
+				入驻/合作
+			</div>
 		</div>
 	</div>
   </div>
+  <!-- 轮播 -->
+  <div class="swiper-container">
+		<div class="swiper-wrapper">
+		  <div class="swiper-slide" style="background-color:#14105d"><img src="./public/images/swiper/1.png"></div>
+		  <div class="swiper-slide" style="background-color: #d2e1de"><img src="./public/images/swiper/2.png"></div>
+		  <div class="swiper-slide" style="background-color: #9bbdfc"><img src="./public/images/swiper/3.png"></div>
+		  <div class="swiper-slide" style="background-color: #ffd046"><img src="./public/images/swiper/4.png"></div>
+		  <div class="swiper-slide" style="background-color: #010f53"><img src="./public/images/swiper/5.png"></div>
+		</div>
+		<!-- Add Pagination -->
+		<div class="swiper-pagination"></div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next" style="right:500px"></div>
+		<div class="swiper-button-prev" style="left:500px"></div>
+  </div>
  </body>
 </html>
+<script src="./public/js/swiper-6.3.3/swiper-master/package/swiper-bundle.min.js"></script>
+<script>
+var swiper = new Swiper('.swiper-container', {
+	speed:2000,
+	loop: true,
+	centeredSlides: true,
+	reverseDirection: true,
+	autoplay: {
+		delay: 5000,
+		disableOnInteraction: false,
+	},
+	pagination: {
+	el: '.swiper-pagination',
+	clickable: true,
+	},
+	navigation: {
+	nextEl: '.swiper-button-next',
+	prevEl: '.swiper-button-prev',
+	},
+});
+
+</script>
+

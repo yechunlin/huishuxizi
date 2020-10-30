@@ -15,12 +15,12 @@
     float:left
 }
 .logo{
-    width: 15%;
-    background:url('../images/header/logo192-3x_621b1c1fc1dd9a9eff1800acff237e5c.png');
+    width: 15.5%;
+    background:url('../images/header/logo192-3x_621b1c1fc1dd9a9eff1800acff237e5c.JPG');
     background-size: 100% 100%;
 }
 .search{
-    width: 45%;
+    width: 44.5%;
 }
 .search .search-box{
     box-sizing: content-box;
@@ -62,23 +62,20 @@
     background-color: #188eee;
 }
 .search .header-search-icon{
-    font-family: webfont;
     speak: none;
     font-style: normal;
-    font-weight: 400;
     -webkit-font-feature-settings: normal;
     font-feature-settings: normal;
     font-variant: normal;
     text-transform: none;
-    line-height: 1;
-    font-size: 16px;
     position: relative;
     vertical-align: 0;
     -webkit-font-smoothing: antialiased;
-    font-size:22px
-}
-.search .header-search-icon::before{
-    content: "";
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin: 9px auto;
+    background: url(../images/header/search.png);
 }
 .login{
     width: 40%;
@@ -91,18 +88,6 @@
     line-height: 80px;
     cursor: pointer;
     padding: 0 15px;
-}
-.login .login-bt{
-    
-}
-.login .login-im{
-    
-}
-.login .login-download{
-    
-}
-.login .login-user{
-    
 }
 .login .login-user img{
     width:36px;
