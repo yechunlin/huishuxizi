@@ -1,0 +1,171 @@
+.nav{
+    border-bottom: 1px solid #e5e5e5;
+    text-align: center
+}
+.nav .nav-tab-box{
+    width:63%;
+    height:100%;
+    display: inline-block;
+    position: relative
+}
+.nav .nav-tab-ul li{
+    font-size: 20px;
+    color:#666;
+    margin-left: 2px;
+    display: inline-block;
+    padding: 16px 12px;
+    position: relative;
+    cursor: pointer;
+}
+.nav .nav-tab-more{
+    position: absolute;
+    right: 0;
+    top: 20px;
+    padding: 3px 10px;
+    border: 1px solid #999;
+    border-radius: 2px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #666;
+}
+.nav .nav-tab-more:hover{
+    border-color: #000;
+    color: #000
+}
+
+.course{
+    margin-top: 50px
+}
+.course .class-name{
+    text-align: center;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.course .course-items{
+    width: 63%;
+    margin: 20px auto;
+    overflow: hidden;
+}
+.course .course-items li{
+    float: left;
+    width:17.8%;
+    height: 224px;
+    padding: 7px 0.5% 10px 0.5%;
+    margin:0 0.5%;
+    border: 1px solid transparent;
+}
+.course .course-items li:hover{
+    border-color: #ddd;
+    -webkit-box-shadow: 1px 1px 2px 1px #ececec;
+    box-shadow: 1px 1px 2px 1px #ececec;
+}
+.course .course-items .course-items-image{
+    margin-bottom: 8px;
+}
+.course .course-items .course-items-image img{
+    width:100%
+}
+.course .course-items .course-items-title{
+    color: #333;
+    font-size: 14px;
+    height:40px;
+    line-height: 20px;
+    margin-bottom: 6px;
+}
+.course .course-items .course-items-title a:hover{
+    color: #12a7ff
+}
+.course .course-items .course-items-num-teacher{
+    color: #999;
+    font-size: 12px;
+    height: 18px;
+    margin-bottom: 3px;
+}
+.course .course-items .course-items-price{
+    color: #999;
+    font-size: 12px;
+    height: 24px;
+    line-height: 24px
+}
+.course .course-items .course-items-price-num{
+    color: #f4621f;
+    font-size: 14px;
+}
+
+.black-wrap{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background:rgba(0, 0, 0, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 100;
+    display: none
+}
+.class-select{
+    width:60%;
+    height:640px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding: 0 60px;
+    border-radius: 3px;
+    background: #fff;
+    display: none
+}
+.class-select .select-title{
+    font-size: 32px;
+    line-height: 45px;
+    margin-top: 36px;
+}
+.class-select .select-title-have{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    color: #999;
+}
+.class-select .select-items-box{
+    overflow: hidden;
+    margin-top: 10px
+}
+.class-select .select-items-box li{
+    width:100px;
+    text-align: center;
+    float: left;
+    padding: 7px 10px;
+    border: .5px solid #bbb;
+    border-radius: 80px;
+    cursor: pointer;
+    margin: 10px 16px 0 0;
+    line-height: 14px;
+}
+.class-select .select-items-box .selected{
+    border-color: #12a7ff;
+    color: #12a7ff
+}
+.class-select .select-bt-box{
+    overflow: hidden;
+    position: absolute;
+    bottom: 20px;
+    right: 10px
+}
+.class-select .select-bt-item{
+    display: inline-block;
+    border:1px solid #bbb;
+    color: #333;
+    line-height: 48px;
+    width: 140px;
+    text-align: center;
+    float: right;
+    margin: 30px 10px 0 0;
+    cursor: pointer;
+    font-size: 18px
+}
+.class-select .save{
+    color: #fff;
+    background: #12a7ff
+}
