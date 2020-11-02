@@ -95,11 +95,63 @@ $course_id = intval($_GET['course'] ?: 0);
     <div class="detail-des">
         <div class="detail-des-left">
             <div class="detail-des-nav">
-                <div class="detail-des-nav-item selected">课程概述</div>
-                <div class="detail-des-nav-item">评论(122)</div>
+                <div class="detail-des-nav-item ">课程概述</div>
+                <div class="detail-des-nav-item selected">评论(122)</div>
             </div>
             <div class="detail-des-content">
 
+            </div>
+            <div class="detail-des-reply">
+                <div class="detail-des-reply-type">
+                    <div class="detail-des-reply-static">
+                        <span>80%</span>
+                        好评度
+                    </div>
+                    <div class="detail-des-reply-type-items">
+                        <input type="radio" name="commendsType" checked> 全部评价(122)&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="commendsType"> 好评(80)&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="commendsType"> 中评(30)&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="commendsType"> 差评(12)
+                    </div>
+                </div>
+                <div class="detail-des-reply-items">
+                    <div class="items-left">
+                        <img src="./public/images/header/132.jpg">
+                        <p>叶****</p>
+                    </div>
+                    <div class="items-right">
+                        <div class="star-show">
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_2"></i>
+                            <i class="icon_star_2"></i>
+                        </div>
+                        <div class="reply-content">个人感觉不满意，很多细节点都没讲清或者是说摆个姿势就完事了，摆个姿势我也会啊，我去找球星动作视频不就好了？就好比你要学习降龙十八掌，他只教你怎么摆出姿势，却不教你怎么运用内功打出降龙十八掌。感觉91篮球的付费视频都不值得购买，某站up主的教学视频比他专业多了，还不收钱，感觉他完全就是个门外汉，什么都不懂，就是为了赚钱。骗子</div>
+                        <div class="reply-dated">
+                            2020-11-01
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-des-reply-items">
+                    <div class="items-left">
+                        <img src="./public/images/header/132.jpg">
+                        <p>叶****</p>
+                    </div>
+                    <div class="items-right">
+                        <div class="star-show">
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_1"></i>
+                            <i class="icon_star_2"></i>
+                            <i class="icon_star_2"></i>
+                        </div>
+                        <div class="reply-content">个人感觉不满意，很多细节点都没讲清或者是说摆个姿势就完事了，摆个姿势我也会啊，我去找球星动作视频不就好了？就好比你要学习降龙十八掌，他只教你怎么摆出姿势，却不教你怎么运用内功打出降龙十八掌。感觉91篮球的付费视频都不值得购买，某站up主的教学视频比他专业多了，还不收钱，感觉他完全就是个门外汉，什么都不懂，就是为了赚钱。骗子</div>
+                        <div class="reply-dated">
+                            2020-11-01
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="detail-des-right">

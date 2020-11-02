@@ -135,14 +135,14 @@ body{
     margin: 20px auto;
 }
 .detail-des-left{
-    width: 66%;
+    width: 69%;
     float: left;
     background: #fff;
     overflow: hidden;
     padding: 0 1%;
 }
 .detail-des-right{
-    width: 28%;
+    width: 25%;
     float: right;
     background: #fff;
     padding: 20px 1% 20px 1%;
@@ -150,6 +150,7 @@ body{
 .detail-des-nav{
     height: 50px;
     border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
 }
 .detail-des-nav-item{
     display: inline-block;
@@ -163,8 +164,92 @@ body{
     color: #12a7ff;
 }
 .detail-des-content{
-    height: 400px;
+    display: none
 }
+
+.detail-des-reply-type{
+    background: #f4f4f4;
+    border: 1px solid #e5e5e5;
+    padding: 10px 0;
+    position: relative;
+    font-size: 14px
+}
+.detail-des-reply-static{
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    width: 125px;
+    border-right: 1px solid #e5e5e5;
+    margin: -5px 0;
+}
+.detail-des-reply-static span{
+    color: #e85308;
+    font-size: 28px;
+    line-height: 1;
+    display: block;
+}
+.detail-des-reply-type-items{
+    display: inline-block;
+    padding-left: 20px
+}
+.detail-des-reply-type-items input{
+    display: inline-block;
+    vertical-align: middle;
+}
+.detail-des-reply-items{
+    position: relative;
+    padding: 20px 20px 20px 80px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 14px
+}
+.items-left{
+    position: absolute;
+    width: 80px;
+    text-align: center;
+    top: 20px;
+    left: 0;
+}
+.items-left img{
+    width: 40px;
+    height: 40px;
+    max-width: 100%;
+    border-radius: 50%;
+    border: 0;
+    vertical-align: middle;
+}
+.star-show{
+    margin-top: -4px;
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0;
+}
+.icon_star_1{
+    width: 18px;
+    height: 18px;
+    display: block;
+    background: url('../images/course/star-1.png');
+    display: inline-block;
+    margin-right: 5px
+}
+.icon_star_2{
+    width: 18px;
+    height: 18px;
+    display: block;
+    background: url('../images/course/star-2.png');
+    display: inline-block;
+    margin-right: 5px
+}
+.reply-content{
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    margin-bottom: 10px;
+    line-height: 2
+}
+.reply-dated{
+    color: #999;
+}
+
+
 .detail-des-teacher-header{
     height: 70px;
     margin-bottom: 20px;
