@@ -236,11 +236,11 @@
 			</div>
 			<div class="select-items-box">
 				<ul>
-					<li v-for="(items, index) in cateList" :class="{selected : items.recom}" @click="selectCateRule(index)">{{ items.name }}</li>
+					<li v-for="(items, index) in cateListTmp" :class="{selected : items.recom}" @click="selectCateRule(index)">{{ items.name }}</li>
 				</ul>
 			</div>
 			<div class="select-bt-box">
-				<span class="select-bt-item save">保存</span>
+				<span class="select-bt-item save" @click="updateCate(3)">保存</span>
 				<span class="select-bt-item xczs" @click="updateCate(2)">下次再说</span>
 			</div>
 		</div>
@@ -256,6 +256,10 @@
 	  el: '#app',
 	  data: {
 		cateList: {},
+		cateListTmp: {},
+		firstCateListSelect: {},
+		localStoryCateId: [],
+		localStoryCateIdTmp: [],
 		nowSelectCateId: 0,
 		blackWrapStatus: false,
 		cateSelectStatus: false
@@ -291,30 +295,37 @@
 			var that = this;
 			axios.get('http://localhost/api/public/index.php/hsxz/Cate/getCate?limit=100').then(function (response) {
 				if(response.data.status == 1){
-					that.cateList = response.data.data.items;
 					var have_select_cates = localStorage.getItem('self_cate_rule_id_json');
 					if(have_select_cates){
-						that.selectCateList = JSON.parse(have_select_cates);
-						for(var i=0;i<that.cateList.length;i++){
+						that.localStoryCateId = JSON.parse(have_select_cates);
+						that.localStoryCateIdTmp = JSON.parse(have_select_cates);
+						for(var i=0;i<response.data.data.items.length;i++){
 							var cate_recom = false;
-							if(that.selectCateList.indexOf(Number(that.cateList[i].id)) > -1){
+							if(that.localStoryCateId.indexOf(Number(response.data.data.items[i].id)) > -1){
 								cate_recom = true;
 							}
-							that.cateList[i].recom = cate_recom;
+							response.data.data.items[i].recom = cate_recom;
+							Vue.set(that.cateListTmp, i, response.data.data.items[i]);
+							if(!that.firstCateListSelect.id){
+								that.firstCateListSelect = response.data.data.items[i];
+							}
 						}
 					}else{
 						var tmpSelectCateId = [];
-						for(var i=0;i<that.cateList.length;i++){
+						for(var i=0;i<response.data.data.items.length;i++){
 							var cate_recom = false;
 							if(i<7){
 								cate_recom = true;
-								tmpSelectCateId.push(that.cateList[i].id);
+								tmpSelectCateId.push(response.data.data.items[i].id);
 							}
-							that.cateList[i].recom = cate_recom;
+							response.data.data.items[i].recom = cate_recom;
+							Vue.set(that.cateListTmp, i, response.data.data.items[i]);
 						}
+						that.firstCateListSelect = response.data.data.items[0];
 						localStorage.setItem('self_cate_rule_id_json', JSON.stringify(tmpSelectCateId));
 					}
-					that.selectCate(that.cateList[0]);
+					that.cateList = response.data.data.items;
+					that.selectCate(that.firstCateListSelect);
 				}
 			}).catch(function (error) {
 				console.log(error);
@@ -324,6 +335,7 @@
 			//console.log(items)
 			this.nowSelectCateId = items.id;
 			this.getClassList(items.id);
+			this.firstCateListSelect = items;
 		  },
 		  getClassList: function (cate_id){
 			axios.get('http://localhost/api/public/index.php/hsxz/Class/getClass?cate_id='+cate_id+'&limit=20').then(function (response) {
@@ -336,17 +348,57 @@
 		  },
 		  updateCate: function (type) {
 			if(type == 1){
+				var have_select_cates = localStorage.getItem('self_cate_rule_id_json');
+				if(have_select_cates){
+					this.localStoryCateIdTmp = JSON.parse(have_select_cates);
+				}
 				this.blackWrapStatus = true;
 				this.cateSelectStatus = true;
 			}
 			if(type == 2){
 				this.blackWrapStatus = false;
 				this.cateSelectStatus = false;
+				for(var i=0;i<this.cateList.length;i++){
+					Vue.set(this.cateListTmp, i, this.cateList[i]);
+				}
+			}
+			if(type == 3){
+				this.blackWrapStatus = false;
+				this.cateSelectStatus = false;
+				var resetCateSelectItemsIndex = -1;
+				for(var i=0;i<this.cateList.length;i++){
+					if(!this.cateListTmp[i].recom){
+						if(this.cateListTmp[i].id == this.firstCateListSelect.id){
+							this.firstCateListSelect = {};
+						}
+					}else{
+						if(resetCateSelectItemsIndex < 0){
+							resetCateSelectItemsIndex = i;
+						}
+					}
+					Vue.set(this.cateList, i, this.cateListTmp[i]);
+				}
+				if(!this.firstCateListSelect.id){
+					this.firstCateListSelect = this.cateList[resetCateSelectItemsIndex];
+					this.selectCate(this.firstCateListSelect);
+				}
+				this.localStoryCateId = this.localStoryCateIdTmp;
+				localStorage.setItem('self_cate_rule_id_json', JSON.stringify(this.localStoryCateIdTmp));
 			}
 		  },
 		  selectCateRule: function(index){
-			var tmp = this.cateList[index];
-			Vue.set(this.cateList, index, {
+			var tmp = this.cateListTmp[index];
+			var story_index = this.localStoryCateIdTmp.indexOf(Number(tmp.id));
+			if(story_index > -1){
+				this.localStoryCateIdTmp.splice(story_index,1);
+			}else{
+				if(this.localStoryCateIdTmp.length >= 7){
+					alert('最多选择7个');
+					return false;
+				}
+				this.localStoryCateIdTmp.push(tmp.id);
+			}
+			Vue.set(this.cateListTmp, index, {
 				'id' : tmp.id,
 				'name' : tmp.name,
 				'recom' : !tmp.recom
