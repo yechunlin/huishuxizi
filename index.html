@@ -7,288 +7,353 @@
   <meta name="Description" content="">
   <title>会书习字</title>
   <link rel="stylesheet" href="./public/css/index.css">
-	<link rel="stylesheet" href="./public/css/header.css">
-	<link rel="stylesheet" href="./public/css/class.css">
-	<link rel="stylesheet" href="./public/css/swiper-lb.css">
-	<link rel="stylesheet" href="./public/js/swiper-6.3.3/swiper-master/package/swiper-bundle.min.css">
+  <link rel="stylesheet" href="./public/css/header.css">
+  <link rel="stylesheet" href="./public/css/class.css">
+  <link rel="stylesheet" href="./public/css/swiper-lb.css">
+  <link rel="stylesheet" href="./public/js/swiper-6.3.3/swiper-master/package/swiper-bundle.min.css">
  </head>
  <body>
-  <!-- 头部公共部分 -->
-  <div class="wrap-header">
-	<div class="header-box">
-		<div class="header-items logo"></div>
-		<div class="header-items search">
-			<div class="search-box">
-				<input type="text" name="" id="" class="header-search-input">
-				<div class="header-search-bt">
-					<i class="header-search-icon"></i>
+  <div id="app">
+	  <!-- 头部公共部分 -->
+	  <div class="wrap-header">
+		<div class="header-box">
+			<div class="header-items logo"></div>
+			<div class="header-items search">
+				<div class="search-box">
+					<input type="text" name="" id="" class="header-search-input">
+					<div class="header-search-bt">
+						<i class="header-search-icon"></i>
+					</div>
+				</div>
+			</div>
+			<div class="header-items login">
+				<div class="login-item login-user" style="display:none">
+					<span>原材料</span>
+					<img src="./public/images/header/132.jpg">
+				</div>
+				<div class="login-item login-bt">
+					登录
+				</div>
+				<div class="login-item login-im">
+					私信
+				</div>
+				<div class="login-item login-download">
+					客户端
+				</div>
+				<div class="login-item login-download">
+					极速版
+				</div>
+				<div class="login-item login-download">
+					入驻/合作
 				</div>
 			</div>
 		</div>
-		<div class="header-items login">
-			<div class="login-item login-user" style="display:none">
-				<span>原材料</span>
-				<img src="./public/images/header/132.jpg">
+	  </div>
+	  <!-- 轮播 -->
+	  <div class="swiper-container">
+			<div class="swiper-wrapper">
+			  <div class="swiper-slide" style="background-color:#14105d"><img src="./public/images/swiper/1.png"></div>
+			  <div class="swiper-slide" style="background-color: #d2e1de"><img src="./public/images/swiper/2.png"></div>
+			  <div class="swiper-slide" style="background-color: #9bbdfc"><img src="./public/images/swiper/3.png"></div>
+			  <div class="swiper-slide" style="background-color: #ffd046"><img src="./public/images/swiper/4.png"></div>
+			  <div class="swiper-slide" style="background-color: #010f53"><img src="./public/images/swiper/5.png"></div>
 			</div>
-			<div class="login-item login-bt">
-				登录
+			<!-- Add Pagination -->
+			<div class="swiper-pagination"></div>
+			<!-- Add Arrows -->
+			<div class="bt-show">
+				<div class="swiper-button-next" style="right:500px"></div>
+				<div class="bt-show swiper-button-prev" style="left:500px"></div>
 			</div>
-			<div class="login-item login-im">
-				私信
-			</div>
-			<div class="login-item login-download">
-				客户端
-			</div>
-			<div class="login-item login-download">
-				极速版
-			</div>
-			<div class="login-item login-download">
-				入驻/合作
+	  </div>
+	  <!--导航-->
+	  <div class="nav">
+		<div class="nav-tab-box">
+			<ul class="nav-tab-ul">
+				<li v-for="(items, index) in cateList" v-if="items.recom" @click="selectCate(items)" :class="{point_select:nowSelectCateId==items.id}">{{ items.name }}</li>
+			</ul>
+			<div class="nav-tab-more" @click="updateCate(1)">
+				<span>修改分类</span>
 			</div>
 		</div>
-	</div>
-  </div>
-  <!-- 轮播 -->
-  <div class="swiper-container">
-		<div class="swiper-wrapper">
-		  <div class="swiper-slide" style="background-color:#14105d"><img src="./public/images/swiper/1.png"></div>
-		  <div class="swiper-slide" style="background-color: #d2e1de"><img src="./public/images/swiper/2.png"></div>
-		  <div class="swiper-slide" style="background-color: #9bbdfc"><img src="./public/images/swiper/3.png"></div>
-		  <div class="swiper-slide" style="background-color: #ffd046"><img src="./public/images/swiper/4.png"></div>
-		  <div class="swiper-slide" style="background-color: #010f53"><img src="./public/images/swiper/5.png"></div>
-		</div>
-		<!-- Add Pagination -->
-		<div class="swiper-pagination"></div>
-		<!-- Add Arrows -->
-		<div class="bt-show">
-			<div class="swiper-button-next" style="right:500px"></div>
-			<div class="bt-show swiper-button-prev" style="left:500px"></div>
-		</div>
-  </div>
-  <!--导航-->
-  <div class="nav">
-	<div class="nav-tab-box">
-		<ul class="nav-tab-ul">
-			<li>水墨画</li>
-			<li>素描</li>
-			<li style="color: #23b8ff;border-bottom: 4px solid #23b8ff;">硬笔书法</li>
-			<li>毛笔字</li>
-			<li>扭秧歌</li>
-			<li>拉丁舞</li>
-			<li>诗词歌赋</li>
-		</ul>
-		<div class="nav-tab-more">
-			<span>修改课程</span>
-		</div>
-	</div>
-  </div>
-  <!-- 课程列表 -->
-  <div class="course">
-	<div class="class-name">硬笔书法</div>
-	<div class="course-items">
-		<ul>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-					<a href="detail.php?course=1">popping街舞机械舞零基础自学快速入门视频教程</a>
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-			<li>
-				<div class="course-items-image">
-					<img src="./public/images/course/356.jpg">
-				</div>
-				<div class="course-items-title">
-				popping街舞机械舞零基础自学快速入门视频教程
-				</div>
-				<div class="course-items-num-teacher">
-					<span class="">时长: 35:45</span> | <span class="">王老师</span>
-				</div>
-				<div class="course-items-price">
-					<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
-				</div>
-			</li>
-		</ul>
-	</div>
-  </div>
-
-  <!-- 朦层 -->
-  <div class="black-wrap">
-	<!-- 课程配置 -->
-  	<div class="class-select">
-		<div class="select-title">
-			选择课程
-			<div class="select-title-have">已选<span>7</span>/7</div>
-		</div>
-		<div class="select-items-box">
+	  </div>
+	  <!-- 课程列表 -->
+	  <div class="course">
+		<div class="class-name">硬笔书法</div>
+		<div class="course-items">
 			<ul>
-				<li class="selected">班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
-				<li>班级名称</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+						<a href="detail.php?course=1">popping街舞机械舞零基础自学快速入门视频教程</a>
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
+				<li>
+					<div class="course-items-image">
+						<img src="./public/images/course/356.jpg">
+					</div>
+					<div class="course-items-title">
+					popping街舞机械舞零基础自学快速入门视频教程
+					</div>
+					<div class="course-items-num-teacher">
+						<span class="">时长: 35:45</span> | <span class="">王老师</span>
+					</div>
+					<div class="course-items-price">
+						<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
+					</div>
+				</li>
 			</ul>
 		</div>
-  		<div class="select-bt-box">
-			<span class="select-bt-item save">保存</span>
-			<span class="select-bt-item xczs" >下次再说</span>
+	  </div>
+
+	  <!-- 朦层 -->
+	  <div class="black-wrap" v-show="blackWrapStatus">
+		<!-- 分类配置 -->
+		<div class="class-select" v-show="cateSelectStatus">
+			<div class="select-title">
+				选择分类
+				<div class="select-title-have">已选<span>7</span>/7</div>
+			</div>
+			<div class="select-items-box">
+				<ul>
+					<li v-for="(items, index) in cateList" :class="{selected : items.recom}" @click="selectCateRule(index)">{{ items.name }}</li>
+				</ul>
+			</div>
+			<div class="select-bt-box">
+				<span class="select-bt-item save">保存</span>
+				<span class="select-bt-item xczs" @click="updateCate(2)">下次再说</span>
+			</div>
 		</div>
-  	</div>
+	  </div>
   </div>
  </body>
 </html>
-<script src="./public/js/jquery.min.js"></script>
 <script src="./public/js/swiper-6.3.3/swiper-master/package/swiper-bundle.min.js"></script>
-<script>
-var swiper = new Swiper('.swiper-container', {
-	speed:2000,
-	loop: true,
-	centeredSlides: true,
-	reverseDirection: true,
-	autoplay: {
-		delay: 5000,
-		disableOnInteraction: false,
-	},
-	pagination: {
-	el: '.swiper-pagination',
-	clickable: true,
-	},
-	navigation: {
-	nextEl: '.swiper-button-next',
-	prevEl: '.swiper-button-prev',
-	},
-});
-$('.nav-tab-more span').click(function(){
-	$('.black-wrap').show();
-	$('.class-select').show();
-})
-$('.xczs').click(function(){
-	$('.black-wrap').hide();
-	$('.class-select').hide();
-})
+<script src="./public/js/axios.min.js"></script>
+<script src="./public/js/vue.js"></script>
+<script type="text/javascript">
+	var app = new Vue({
+	  el: '#app',
+	  data: {
+		cateList: {},
+		nowSelectCateId: 0,
+		blackWrapStatus: false,
+		cateSelectStatus: false
+	  },
+	  created: function () {
+		this.getCateList();  
+	  },
+	  updated: function() {
+		var swiper = new Swiper('.swiper-container', {
+			speed:2000,
+			loop: true,
+			centeredSlides: true,
+			reverseDirection: true,
+			autoplay: {
+				delay: 5000,
+				disableOnInteraction: false,
+			},
+			pagination: {
+			el: '.swiper-pagination',
+			clickable: true,
+			},
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	  },
+	  computed: {
+
+	  },
+	  methods: {
+		  getCateList: function (){
+			var that = this;
+			axios.get('http://localhost/api/public/index.php/hsxz/Cate/getCate?limit=100').then(function (response) {
+				if(response.data.status == 1){
+					that.cateList = response.data.data.items;
+					var have_select_cates = localStorage.getItem('self_cate_rule_id_json');
+					if(have_select_cates){
+						that.selectCateList = JSON.parse(have_select_cates);
+						for(var i=0;i<that.cateList.length;i++){
+							var cate_recom = false;
+							if(that.selectCateList.indexOf(Number(that.cateList[i].id)) > -1){
+								cate_recom = true;
+							}
+							that.cateList[i].recom = cate_recom;
+						}
+					}else{
+						var tmpSelectCateId = [];
+						for(var i=0;i<that.cateList.length;i++){
+							var cate_recom = false;
+							if(i<7){
+								cate_recom = true;
+								tmpSelectCateId.push(that.cateList[i].id);
+							}
+							that.cateList[i].recom = cate_recom;
+						}
+						localStorage.setItem('self_cate_rule_id_json', JSON.stringify(tmpSelectCateId));
+					}
+					that.selectCate(that.cateList[0]);
+				}
+			}).catch(function (error) {
+				console.log(error);
+			});
+		  },
+		  selectCate: function(items){
+			//console.log(items)
+			this.nowSelectCateId = items.id;
+			this.getClassList(items.id);
+		  },
+		  getClassList: function (cate_id){
+			axios.get('http://localhost/api/public/index.php/hsxz/Class/getClass?cate_id='+cate_id+'&limit=20').then(function (response) {
+				if(response.data.status == 1){
+					console.log(response.data.data)
+				}
+			}).catch(function (error) {
+				console.log(error);
+			});	
+		  },
+		  updateCate: function (type) {
+			if(type == 1){
+				this.blackWrapStatus = true;
+				this.cateSelectStatus = true;
+			}
+			if(type == 2){
+				this.blackWrapStatus = false;
+				this.cateSelectStatus = false;
+			}
+		  },
+		  selectCateRule: function(index){
+			var tmp = this.cateList[index];
+			Vue.set(this.cateList, index, {
+				'id' : tmp.id,
+				'name' : tmp.name,
+				'recom' : !tmp.recom
+			});
+		  }
+	  }
+	})
 </script>
+
 
