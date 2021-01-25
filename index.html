@@ -91,10 +91,12 @@
 							<a>{{ items_s.title }}</a>
 						</div>
 						<div class="course-items-num-teacher">
-							<span class="">观看: 35</span> | <span class="">点赞: 135</span>
+							<span class="">推荐指数：
+								<i v-for="i in items_s.recom"></i>
+							</span>
 						</div>
 						<div class="course-items-num-teacher">
-							<span class="">老师：{{ items_s.admin_name }}</span>
+							<span class="">等级: {{ items_s.level_name }}</span> | <span class="">老师：{{ items_s.admin_name }}</span>
 						</div>
 						<!-- <div class="course-items-price">
 							<span class="course-items-price-num">¥50.00</span> | <span class=""> 3369人购买</span>
@@ -111,7 +113,7 @@
 		<div class="class-select" v-show="cateSelectStatus">
 			<div class="select-title">
 				选择分类
-				<div class="select-title-have">已选<span>7</span>/7</div>
+				<div class="select-title-have">已选<span>{{ localStoryCateIdTmp.length }}</span>/7</div>
 			</div>
 			<div class="select-items-box">
 				<ul>
