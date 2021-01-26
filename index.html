@@ -175,7 +175,7 @@
 	  methods: {
 		  getCateList: function (){
 			var that = this;
-			axios.get('./api/public/index.php/hsxz/Cate/getCate?limit=100').then(function (response) {
+			axios.get('../api/public/index.php/hsxz/Cate/getCate?limit=100').then(function (response) {
 				if(response.data.status == 1){
 					var have_select_cates = localStorage.getItem('self_cate_rule_id_json');
 					if(have_select_cates){
@@ -221,7 +221,7 @@
 		  },
 		  getClassList: function (cate_id){
 			var that = this;
-			axios.get('./api/public/index.php/hsxz/Class/getClass?cate_id='+cate_id+'&limit=20').then(function (response) {
+			axios.get('../api/public/index.php/hsxz/Class/getClass?cate_id='+cate_id+'&limit=20').then(function (response) {
 				if(response.data.status == 1){
 					console.log(response.data.data)
 					that.classList = response.data.data.items;
