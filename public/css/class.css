@@ -88,7 +88,7 @@
     margin-bottom: 3px;
 }
 .course .course-items .course-items-num-teacher i{
-	background:url(./public/images/course/star-1.png);
+	background:url(../images/course/star-1.png);
 	display: inline-block;
     width: 12px;
     height: 12px;
